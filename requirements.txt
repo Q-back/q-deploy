@@ -1,0 +1,9 @@
+atomicwrites==1.2.1
+attrs==18.2.0
+more-itertools==4.3.0
+plac==1.0.0
+pluggy==0.7.1
+py==1.6.0
+pyfakefs==3.4.3
+pytest==3.7.4
+six==1.11.0

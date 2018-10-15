@@ -1,0 +1,16 @@
+- hosts: q-servers
+  vars:
+    http_port: 80
+  remote_user: {{ user }}
+- tasks:
+  - name: Create Virtualenv.
+  command: virtualenv -p python3 {{ AppName }}
+  - name: Clone from git.
+  git:
+    repo: {{ repo }}
+    dest: /home/{{ user }}/DjangoProjects/{{ AppName }}/
+  - name: Activate virtualenv.
+  command: /home/{{ user }}/DjangoProjects/{{ AppName }}/bin/activate
+  - name: Install pip requirements.
+  command: /home/{{ user }}/DjangoProjects/{{ AppName }}/bin/pip install
+  -r {{ AppName }}/requirements.txt
