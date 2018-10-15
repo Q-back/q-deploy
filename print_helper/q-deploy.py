@@ -1,7 +1,7 @@
 print(
     "Q-Deploy Print Helper. Just a simple helper which prints you ",
-    "config files and where to paste them/what to do with them.\n",
-    "It's really useful before finishing deployment scripts or when changing ",
+    "config files and where to paste them/what to do with them.",
+    "\nIt's really useful before finishing deployment scripts or when changing ",
     "server configuration.\n\n"
 )
 print(
@@ -17,8 +17,8 @@ directory_path = (
 )
 
 print(
-    "If you're not using *pipenv*, then go to ~/DjangoProjects and run: \n",
-    f"virtualenv -p python3 {program_name}"
+    "\n\n#If you're not using *pipenv*, then go to ~/DjangoProjects and run:",
+    f"\n virtualenv -p python3 {program_name}"
 )
 
 supervisor_conf = (
@@ -32,7 +32,7 @@ supervisor_conf = (
     redirect_stderr=true
     """
 )
-print("Add to \n/etc/supervisord.conf\nThe config:")
+print("# Add to \n /etc/supervisord.conf\n# The config:")
 print(supervisor_conf)
 
 conf = (
@@ -56,10 +56,13 @@ conf = (
             }}
     """
 )
+print(f"# Add to \n /etc/nginx/sites-available/{domain} \n# The config:")
+print(conf)
+
 print(
-    "Now run:\n",
-    f"sudo ln -s /etc/nginx/sites-available/{domain} /etc/nginx/sites-enabled/{domain}\n",
-    f"sudo supervisorctl restart {program_name}\n"
-    f"sudo sudo nginx -s reload\n"
+    "# Now run:",
+    f"\n sudo ln -s /etc/nginx/sites-available/{domain} /etc/nginx/sites-enabled/{domain}",
+    f"\n sudo supervisorctl restart {program_name}"
+    f"\n sudo sudo nginx -s reload"
 )
-print("Should work now ;)")
+print("\n\nShould work now ;)")
