@@ -37,7 +37,7 @@ print(supervisor_conf)
 
 conf = (
     f"""
-    upstream q-page {{
+    upstream {program_name} {{
       server unix:/tmp/{program_name}.sock;
     }}
     server {{
@@ -54,6 +54,7 @@ conf = (
             location /static/ {{
                     alias /home/admin_q/DjangoProjects/{program_name}/static/;
             }}
+    }}
     """
 )
 print(f"# Add to \n /etc/nginx/sites-available/{domain} \n# The config:")
