@@ -62,6 +62,7 @@ print(conf)
 print(
     "# Now run:",
     f"\n sudo ln -s /etc/nginx/sites-available/{domain} /etc/nginx/sites-enabled/{domain}",
+    "sudo supervisorctl update"
     f"\n sudo supervisorctl restart {program_name}"
     f"\n sudo sudo nginx -s reload"
 )
